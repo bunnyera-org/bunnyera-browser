@@ -1,0 +1,25 @@
+{
+  "name": "bunnyera-browser",
+  "version": "1.0.0",
+  "description": "BunnyEra Browser is an AI browser automation module for webpage access, screenshots, and workflow execution.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "visit": "node src/visit.js",
+    "screenshot": "node src/screenshot.js",
+    "install:browsers": "npx playwright install chromium"
+  },
+  "keywords": [
+    "bunnyera",
+    "browser",
+    "automation",
+    "playwright",
+    "ai-browser"
+  ],
+  "author": "BunnyEra",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}

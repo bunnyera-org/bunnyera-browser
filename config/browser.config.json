@@ -1,0 +1,10 @@
+{
+  "defaultUrl": "https://example.com",
+  "headless": true,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "screenshotDir": "screenshots",
+  "timeoutMs": 30000
+}
