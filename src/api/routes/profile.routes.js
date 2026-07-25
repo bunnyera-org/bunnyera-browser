@@ -1,20 +1,19 @@
 import { Router } from "express";
-import { createProfile, listProfiles } from "../../profile/manager.js";
+import { createProfile, listProfiles, deleteProfile } from "../../profile/profile.service.js";
 
 const router = Router();
 
 router.get("/", (req,res)=>{
-  res.json({
-    success:true,
-    profiles:listProfiles()
-  });
+  res.json(listProfiles());
 });
 
 router.post("/create",(req,res)=>{
-  const result=createProfile(req.body.name);
+  res.json(createProfile(req.body.profileId));
+});
+
+router.delete("/:id",(req,res)=>{
   res.json({
-    success:true,
-    profile:result
+    success: deleteProfile(req.params.id)
   });
 });
 
