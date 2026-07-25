@@ -3,6 +3,7 @@ import profileRoutes from "./routes/profile.routes.js";
 import proxyRoutes from "./routes/proxy.routes.js";
 import sessionRoutes from "./routes/session.routes.js";
 import fingerprintRoutes from "./routes/fingerprint.routes.js";
+import browserRoutes from "./routes/browser.routes.js";
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use("/api/profiles", profileRoutes);
 app.use("/api/proxy", proxyRoutes);
 app.use("/api/sessions", sessionRoutes);
 app.use("/api/fingerprint", fingerprintRoutes);
+app.use("/api/browser", browserRoutes);
 
 app.listen(8080, () => {
   console.log("BunnyEra Browser API v1.4 running on port 8080");
