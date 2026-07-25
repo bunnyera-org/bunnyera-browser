@@ -8,7 +8,9 @@
     "start": "node src/index.js",
     "visit": "node src/visit.js",
     "screenshot": "node src/screenshot.js",
-    "install:browsers": "npx playwright install chromium"
+    "install:browsers": "npx playwright install chromium",
+    "api": "node src/api/server.js",
+    "browser": "node src/index.js"
   },
   "keywords": [
     "bunnyera",
