@@ -1,0 +1,19 @@
+model User {
+  id Int @id @default(autoincrement())
+  email String @unique
+}
+
+model Organization {
+  id Int @id @default(autoincrement())
+  name String
+}
+
+model BrowserProfile {
+  id Int @id @default(autoincrement())
+  name String
+}
+
+model Task {
+  id Int @id @default(autoincrement())
+  status String
+}
