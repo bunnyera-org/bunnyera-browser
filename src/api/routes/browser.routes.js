@@ -1,20 +1,16 @@
 import { Router } from "express";
-import { registerBrowser, stopBrowser, getBrowserStatus } from "../../browser/process.manager.js";
+import { startRuntime, stopRuntime, getRuntimeStatus } from "../../browser/runtime.js";
 
 const router = Router();
 
-router.get("/", (req,res)=>{
-  res.json(getBrowserStatus());
+router.get("/", (req,res)=>res.json(getRuntimeStatus()));
+
+router.post("/start", async (req,res)=>{
+  res.json(await startRuntime(req.body.profileId));
 });
 
-router.post("/start",(req,res)=>{
-  res.json(registerBrowser(req.body.profileId,{
-    pid: process.pid
-  }));
-});
-
-router.post("/stop",(req,res)=>{
-  res.json(stopBrowser(req.body.profileId));
+router.post("/stop", async (req,res)=>{
+  res.json(await stopRuntime(req.body.profileId));
 });
 
 export default router;
