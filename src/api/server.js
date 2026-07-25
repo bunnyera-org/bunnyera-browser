@@ -1,15 +1,26 @@
 import express from "express";
-import {createProfile,listProfiles} from "../profile/manager.js";
+import profileRoutes from "./routes/profile.routes.js";
+import proxyRoutes from "./routes/proxy.routes.js";
+import sessionRoutes from "./routes/session.routes.js";
+import fingerprintRoutes from "./routes/fingerprint.routes.js";
 
-const app=express();
+const app = express();
+
 app.use(express.json());
 
-app.get("/api/profiles",(req,res)=>{
- res.json(listProfiles());
+app.get("/health", (req, res) => {
+  res.json({
+    status: "ok",
+    service: "BunnyEra Browser API",
+    version: "1.4"
+  });
 });
 
-app.post("/api/profiles",(req,res)=>{
- res.json(createProfile(req.body.name));
-});
+app.use("/api/profiles", profileRoutes);
+app.use("/api/proxy", proxyRoutes);
+app.use("/api/sessions", sessionRoutes);
+app.use("/api/fingerprint", fingerprintRoutes);
 
-app.listen(8080,()=>console.log("BunnyEra Browser API :8080"));
+app.listen(8080, () => {
+  console.log("BunnyEra Browser API v1.4 running on port 8080");
+});
